@@ -114,3 +114,41 @@ button.btn-primary:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
+
+
+/* bus operator */
+.responsive-box {
+    position: relative;
+    top:-3em;
+    background-color: white; /* White background */
+    padding: 20px;
+    border: 1px solid #ddd; /* Light border for visibility */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow */
+    text-align: center;
+}
+
+/* Make columns responsive */
+.col {
+    padding: 10px;
+}
+
+/* Adjust columns for larger screens */
+@media (min-width: 768px) {
+   
+}
+
+/* Adjust columns for smaller screens */
+@media (max-width: 767px) {
+    .cont1{
+        height:45em!important;
+    }
+   .responsive-box{
+    position: relative;
+    top:-7em;
+   }
+   .bus-operator{
+    position: relative;
+    top: -6em!important;
+   }
+}

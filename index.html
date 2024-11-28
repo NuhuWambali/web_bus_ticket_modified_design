@@ -48,17 +48,32 @@
     
         <!-- Services-->
         <section class="page-section searchBusForm" id="services">
-            <div class="container ">
+            <div class="container cont1" style="height:20em">
                 <div class="overlay-form" style="position: relative; top: -12em; z-index: 100; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: auto; width: 100%;">
                     <form class="form-container">
                         <div class="form-row" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;">
                             <div class="form-group" style="flex: 1; min-width: 200px; padding-right: 10px;">
                                 <label for="from">From:</label>
-                                <input type="text" id="from" class="form-control" placeholder="Enter departure location" style="width: 100%;">
-                            </div>
+                                <select id="inputState" class="form-control wow fadeInLeft big-select">
+                                    <option selected disabled>Select From</option>
+                                    <option>Mwanza</option>
+                                    <option>Tabora</option>
+                                    <option>Manyara</option>
+                                    <option>Mtwara</option>
+                                    <option>Tanga</option>
+                                    <option>Musoma</option>
+                                  </select>                            </div>
                             <div class="form-group" style="flex: 1; min-width: 200px; padding-right: 10px;">
                                 <label for="to">To:</label>
-                                <input type="text" id="to" class="form-control" placeholder="Enter destination" style="width: 100%;">
+                                <select id="inputState" class="form-control wow fadeInLeft big-select">
+                                    <option selected disabled>Select From</option>
+                                    <option>Mwanza</option>
+                                    <option>Tabora</option>
+                                    <option>Manyara</option>
+                                    <option>Mtwara</option>
+                                    <option>Tanga</option>
+                                    <option>Musoma</option>
+                                  </select> 
                             </div>
                             <div class="form-group" style="flex: 1; min-width: 200px;">
                                 <label for="date">Date:</label>
@@ -71,9 +86,40 @@
                     </form>
                 </div>
                 
+               
                 
+                <h2 class="bus-operator"style="position: relative;top:-3em;">Bus Operators
+                </h2>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-3 mt-2">
+                        <div class="responsive-box">
+                            <i class="fa fa-car"></i>
+                            <p>Ali Hassan Senchonge</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 mt-2">
+                        <div class="responsive-box">
+                            <i class="fa fa-car"></i>
+                            <p>Ali Hassan Senchonge</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 mt-2">
+                        <div class="responsive-box">
+                            <i class="fa fa-car"></i>
+                            <p>Ali Hassan Senchonge</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 mt-2">
+                        <div class="responsive-box">
+                            <i class="fa fa-car"></i>
+                            <p>Ali Hassan Senchonge</p>
+                        </div>
+                    </div>
+                </div>
                 
+                    
             </div>
+            
         </section>
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="portfolio">
