@@ -454,3 +454,30 @@ button.btn-primary:hover {
    border:1px solid #1E88E1;
    color:#1E88E1;
 }
+
+/* about us */
+
+.about_description1{
+    /* top:-11em; */
+    font-size:20px;
+    margin:0.4em 2em;
+    text-align: left;
+}
+.about_description2{
+    /* top:-11em; */
+    font-size:20px;
+    margin:0.4em 2em;
+    text-align: left;
+}
+.about_description3{
+    /* top:-11em; */
+    font-size:20px;
+    margin:0.4em 2em;
+    text-align: left;
+}
+.about_description4{
+    /* top:-11em; */
+    font-size:20px;
+    margin:0.4em 2em;
+    text-align: left;
+}
