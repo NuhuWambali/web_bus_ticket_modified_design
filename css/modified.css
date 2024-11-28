@@ -120,7 +120,7 @@ button.btn-primary:hover {
 .responsive-box {
     position: relative;
     top:-3em;
-    background-color: red; /* White background */
+    background-color: white; /* White background */
     padding: 20px;
     border: 1px solid #ddd; /* Light border for visibility */
     border-radius: 8px; /* Rounded corners */
