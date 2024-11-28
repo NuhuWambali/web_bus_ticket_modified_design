@@ -155,6 +155,15 @@ button.btn-primary:hover {
     position: relative;
     top: -6em!important;
    }
+   .footer-description{
+    font-size:14px;
+   }
+   .footer-contact{
+    font-size:15px;
+   }
+   .footer-links{
+        font-size:15px;
+   }
 }
 
 
