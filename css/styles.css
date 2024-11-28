@@ -207,11 +207,11 @@ sup {
 }
 
 a {
-  color: #ffc800;
+  color: #1E88E1;
   text-decoration: underline;
 }
 a:hover {
-  color: #cca000;
+  color: #1E88E1;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -10899,8 +10899,8 @@ p {
   letter-spacing: 0.0625em;
   text-transform: uppercase;
 }
-#mainNav .navbar-brand{
-  height: 1.5rem;
+#mainNav .navbar-brand {
+  height: 2.5rem;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -10925,7 +10925,7 @@ p {
     transition: font-size 0.3s ease-in-out;
   }
   #mainNav .navbar-brand img {
-    height: 2rem;
+    height:3em;
     transition: height 0.3s ease-in-out;
   }
   #mainNav.navbar-shrink {
@@ -11252,73 +11252,8 @@ header.masthead .masthead-heading {
     padding: 0 100px 20px 20px;
   }
 }
-.team-member {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-.team-member img {
-  width: 14rem;
-  height: 14rem;
-  border: 0.5rem solid rgba(0, 0, 0, 0.1);
-}
-.team-member h4, .team-member .h4 {
-  margin-top: 1.5rem;
-  margin-bottom: 0;
-}
 
-.img-brand {
-  height: 2.75rem;
-}
 
-section#contact {
-  background-color: #212529;
-  background-image: url("../assets/img/map-image.png");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-section#contact .section-heading {
-  color: #fff;
-}
-section#contact form#contactForm .form-group {
-  margin-bottom: 1.5rem;
-}
-section#contact form#contactForm .form-group input,
-section#contact form#contactForm .form-group textarea {
-  padding: 1.25rem;
-}
-section#contact form#contactForm .form-group input.form-control {
-  height: auto;
-}
-section#contact form#contactForm .form-group-textarea {
-  height: 100%;
-}
-section#contact form#contactForm .form-group-textarea textarea {
-  height: 100%;
-  min-height: 10rem;
-}
-section#contact form#contactForm p.help-block {
-  margin: 0;
-}
-section#contact form#contactForm .form-control:focus {
-  border-color: #ffc800;
-  box-shadow: none;
-}
-section#contact form#contactForm ::-webkit-input-placeholder {
-  font-family: 'Poppins', sans-serif !important;   font-weight: 700;
-  color: #ced4da;
-}
-section#contact form#contactForm :-moz-placeholder {
-  font-family: 'Poppins', sans-serif !important;   font-weight: 700;
-  color: #ced4da;
-}
-section#contact form#contactForm ::-moz-placeholder {
-  font-family: 'Poppins', sans-serif !important;   font-weight: 700;
-  color: #ced4da;
-}
-section#contact form#contactForm :-ms-input-placeholder {
-  font-family: 'Poppins', sans-serif !important;   font-weight: 700;
-  color: #ced4da;
-}
 
 .footer {
   text-align: center;
