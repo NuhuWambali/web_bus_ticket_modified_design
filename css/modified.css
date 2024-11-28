@@ -151,4 +151,8 @@ button.btn-primary:hover {
     position: relative;
     top: -6em!important;
    }
+   .align-items-center{
+    position: relative;
+    top: -6em!important;
+   }
 }
