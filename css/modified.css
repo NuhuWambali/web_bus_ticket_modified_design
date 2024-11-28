@@ -327,6 +327,10 @@ button.btn-primary:hover {
         justify-content: center;
         gap: 10px;
     }
+    
+    .masthead-heading_download_ticket{
+        font-size: 30px!important;
+    }
 }
 
 
@@ -359,4 +363,94 @@ button.btn-primary:hover {
     outline: none;                /* Remove the default outline */
     box-shadow:none;              /* Remove any box shadow that might cause a yellow color */
     border-color: #ccc !important
+}
+
+
+/* download ticket */
+.custom-card {
+    max-width: 70%;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.custom-card input {
+    margin-bottom: 15px; /* Adds space between input fields */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.btn-custom {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive Design - For Small Screens */
+@media (max-width: 676px) {
+    .custom-card {
+        padding: 15px;
+        max-width: 100%;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12); /* Slightly smaller shadow on small screens */
+        border-radius: 10px; /* Smaller border-radius on small screens */
+    }
+
+    .card-title {
+        font-size: 1.25rem; /* Smaller title size for small screens */
+    }
+
+    .btn-custom {
+        padding: 10px; /* Adjust padding for the button on smaller screens */
+    }
+
+    .custom-card input {
+        font-size: 1rem; /* Larger input text for better accessibility */
+    }
+    .searchBusesBtn1{
+        width:15em!important;
+    }
+}
+
+
+.searchBusesBtn1{
+    display: inline-block;
+    padding: 0.7rem 2.5rem; 
+    font-size: 1rem; 
+    width:30em;
+    font-weight: bold;
+    color: #fff; 
+    background-color: #1E88E1; 
+    border: none;
+    border-radius: 20px; 
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.searchBusesBtn1:hover{
+  background-color: white;
+   border:1px solid #1E88E1;
+   color:#1E88E1;
 }

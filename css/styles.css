@@ -10974,7 +10974,6 @@ header.masthead::before {
 
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
-  font-style: italic;
   line-height: 2rem;
   margin-bottom: 25px;
   font-family: 'Poppins', sans-serif !important; 
@@ -10993,7 +10992,6 @@ header.masthead .masthead-heading {
   }
   header.masthead .masthead-subheading {
     font-size: 2.25rem;
-    font-style: italic;
     line-height: 3.25rem;
     margin-bottom: 2rem;
   }
@@ -11004,6 +11002,75 @@ header.masthead .masthead-heading {
     margin-bottom: 4rem;
   }
 }
+
+
+
+header.masthead_download_ticket {
+  position: relative; 
+  height: 50px!important;
+  padding-top: 10.5rem;
+  padding-bottom: 6rem;
+  text-align: center;
+  color: #fff;
+  background-image: url("../assets/img/bg.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  z-index: 1; /* Ensures content stays above the overlay */
+}
+
+header.masthead_download_ticket::before {
+  content: ""; /* Creates the overlay */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Black overlay with 50% opacity */
+  z-index: -1; /* Places the overlay behind the content */
+}
+
+header.masthead_download_ticket .masthead-subheading {
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 2rem;
+  margin-bottom: 25px;
+  font-family: 'Poppins', sans-serif !important; 
+}
+header.masthead_download_ticket .masthead-heading_download_ticket {
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+  font-family: 'Poppins', sans-serif !important; }
+
+@media (min-width: 768px) {
+  header.masthead_download_ticket {
+    padding-top: 17rem;
+    padding-bottom: 12.5rem;
+  }
+  header.masthead_download_ticket .masthead-subheading {
+    font-size: 2.25rem;
+    font-style: italic;
+    line-height: 3.25rem;
+    margin-bottom: 2rem;
+  }
+  header.masthead_download_ticket .masthead-heading {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+
+
+
+
+
+
+
 #portfolio .portfolio-item {
   max-width: 26rem;
   margin-left: auto;
