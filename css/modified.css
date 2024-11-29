@@ -481,3 +481,187 @@ button.btn-primary:hover {
     margin:0.4em 2em;
     text-align: left;
 }
+
+
+/* customer feedback */
+/* General Styling */
+.customer_feedback {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.customer_feedback h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.customer_feedback p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+
+.card_small_screen {
+    padding: 30px;
+}
+
+.emoji-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.emoji-container input[type="radio"] {
+    display: none;
+}
+
+.emoji-container label {
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.emoji-container label:hover {
+    transform: scale(1.2);
+}
+
+.comment-field {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-bottom: 20px;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.comment-field:focus {
+    border-color: #1E88E1;
+    outline: none;
+}
+
+.submit-btn {
+    padding: 10px 12em;
+    font-size: 16px;
+    background-color: #1E88E1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1E88E1; 
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:active {
+    transform: scale(1); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .customer_feedback{
+       margin-top: 2em;
+       max-width: 90%;
+    }
+    .submit-btn {
+        padding: 10px 6em;
+        font-size: 16px;
+        background-color: #1E88E1;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .emoji-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .emoji-container label {
+        margin: 10px;
+        font-size: 40px;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .customer_feedback h3 {
+        font-size: 20px;
+    }
+
+    .emoji-container label {
+        font-size: 35px;
+    }
+
+    .comment-field {
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        font-size: 14px;
+    }
+
+}
+
+
+.emoji-container label {
+    font-size: 30px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.emoji-container label:hover {
+    transform: scale(1.2);
+}
+
+/* Tooltip text styling */
+.emoji-container label::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+/* Show tooltip on hover */
+.emoji-container label:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.emoji-container label {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
