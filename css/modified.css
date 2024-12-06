@@ -124,6 +124,28 @@ button.btn-primary:hover {
 }
 
 
+.searchBusesBtn100{
+    display: inline-block;
+    font-size: 1rem; 
+    padding: 0.7rem 2.4rem; 
+    width: 97%;
+    font-weight: bold;
+    color: #fff; 
+    background-color: #000; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.searchBusesBtn100:hover{
+  background-color: white;
+   border:1px solid #1E88E1;
+   color:#1E88E1;
+}
+
 /* bus operator */
 .responsive-box {
     position: relative;
