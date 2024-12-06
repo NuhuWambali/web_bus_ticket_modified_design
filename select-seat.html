@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content />
+        <meta name="author" content />
+        <title>Web E-Ticket - Select Ticket</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png" />
+        <!-- Font Awesome icons (free version)-->
+
+        <!-- Google fonts-->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/modified.css" rel="stylesheet" />
+        <link href="css/mystyles.css" rel="stylesheet" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        .selectBus{
+             color:#000!important;
+        }
+        @media (max-width: 767px) {
+    .btn {
+        width: 100% !important; /* Make button width 100% to fit the container */
+        padding: 12px; /* Adjust padding for a better appearance */
+        font-size: 14px; /* Reduce font size to fit smaller screens */
+    }
+
+    /* Adjust the table layout */
+    .table {
+        width: 80% !important;
+        margin-left: 10px; /* Add space on left */
+        margin-right: 10px; /* Add space on right */
+    }
+
+    .table td, .table th {
+        padding: 8px 1px; /* Adjust padding for smaller cells */
+    }
+}
+.div-text-center{
+        text-align:center;
+        vertical-align:center;
+        horizontal-align:center;
+    }
+    .seat-dev-img{
+        width:32px;
+        text-align:center;
+        vertical-align:center;
+        horiz-align: center;
+        height:32px;
+        font-size:11px;
+        font-weight:bold;
+        background-image:url('{{asset("img/available_seat32.png")}}');
+        background-repeat: no-repeat;
+    }
+    .seat-inactive-img{
+        width:32px;
+        text-align:center;
+        vertical-align:center;
+        horiz-align: center;
+        height:32px;
+        font-size:11px;
+        font-weight:bold;
+        background-image:url('{{asset("img/inactive_seat32.png")}}');
+        background-repeat: no-repeat;
+    }
+    .seat-inprocess-img{
+        width:32px;
+        text-align:center;
+        vertical-align:center;
+        horiz-align: center;
+        height:32px;
+        font-size:11px;
+        font-weight:bold;
+        color: #fff;
+        background-image:url('{{asset("img/processing_seat32.png")}}');
+        background-repeat: no-repeat;
+    }
+    .seat-booked-img{
+        width:32px;
+        text-align:center;
+        vertical-align:center;
+        horiz-align: center;
+        height:32px;
+        font-size:11px;
+        font-weight:bold;
+        background-image:url('{{asset("img/booked_seat32.png")}}');
+        background-repeat: no-repeat;
+    }
+    .borderless td, .borderless th {
+    border: none;
+    }
+    .available_16{
+        width:32px;
+        text-align:center;
+        vertical-align:center;
+        horiz-align: center;
+        height:32px;
+        font-size:11px;
+        font-weight:bold;
+        background-image:url('{{asset("img/available_seat32.png")}}');
+        background-repeat: no-repeat;
+    }
+.booked_16{
+        width:32px;
+        text-align:center;
+        vertical-align:center;
+        horiz-align: center;
+        height:32px;
+        font-size:11px;
+        font-weight:bold;
+        background-image:url('{{asset("img/booked_seat32.png")}}');
+        background-repeat: no-repeat;
+    }
+.processing_16{
+        width:32px;
+        text-align:center;
+        vertical-align:center;
+        horiz-align: center;
+        height:32px;
+        font-size:11px;
+        font-weight:bold;
+        background-image:url('{{asset("img/processing_seat32.png")}}');
+        background-repeat: no-repeat;
+    }
+.inactive_16{
+        width:32px;
+        text-align:center;
+        vertical-align:center;
+        horiz-align: center;
+        height:32px;
+        font-size:11px;
+        font-weight:bold;
+        background-image:url('{{asset("img/inactive_seat32.png")}}');
+        background-repeat: no-repeat;
+    }
+
+.booking-item-flight-details .booking-item-departure .fa-bus,
+.booking-item-flight-details .booking-item-arrival .fa-bus {
+  float: left;
+  display: block;
+  font-size: 30px;
+  margin-right: 5px;
+  position: relative;
+  top: 4px;
+}
+.booking-item-payment-total-flight > li .booking-item-flight-details .booking-item-departure .fa-bus,
+.booking-item-payment-total-flight > li .booking-item-flight-details .booking-item-arrival .fa-bus {
+  font-size: 20px;
+}
+.booking-item-payment-flight .booking-item-flight-details .booking-item-departure .fa-bus,
+.booking-item-payment-flight .booking-item-flight-details .booking-item-arrival .fa-bus {
+  font-size: 20px;
+}
+
+/* annimated arrow */
+.arrow1 {
+  animation: slide1 1s ease-in-out infinite;
+  margin-left: 9px;
+}
+@keyframes slide1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}
+    </style>
+    
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img
+                        src="./assets/img/logos/logo.png" alt="logo"
+                        width="200px" height="100em"
+                        style="height:4em;position:relative;top:-1em;" /></a>
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link"
+                                href="./index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="./about-us.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="./download_ticket.html">Download
+                                Ticket</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="./customer_feedback.html">Customer
+                                Feedback</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="./contact-us.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="./login.html">Login</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <!-- Display current language icon and name using Font Awesome -->
+                                <span id="current-language">
+                                    <i class="fa fa-language me-2"></i> English
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="navbarDropdown">
+                                <!-- Language Options with Font Awesome Icons -->
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="changeLanguage('english')">
+                                        <i class="fa fa-flag me-2"></i> English
+                                    </a></li>
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="changeLanguage('swahili')">
+                                        <i class="fa fa-flag me-2"></i> Swahili
+                                    </a></li>
+                                <!-- Add more languages here -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead_download_ticket" style="position: relative;">
+            <div class="container">
+                <div class="masthead-heading_download_ticket ">Select Bus</div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="gap"></div>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-12 my-5">
+                            <form class="booking-item-dates-change mb30" method="get" action="{{route('book-now')}}">
+                                   <div class="form-group form-group-icon-left">
+                                        <label for="to">From:</label>
+                                        <select id="inputState" class="form-control wow fadeInLeft big-select">
+                                            <option selected>KILIMANJARO</option>
+                                            <option>Tabora</option>
+                                            <option>Manyara</option>
+                                            <option>Mtwara</option>
+                                            <option>Tanga</option>
+                                            <option>Musoma</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group form-group-icon-left my-4">
+                                        <label for="to">To:</label>
+                                        <select id="inputState" class="form-control wow fadeInLeft big-select">
+                                            <option selected>KILIMANJARO</option>
+                                            <option>Tabora</option>
+                                            <option>Manyara</option>
+                                            <option>Mtwara</option>
+                                            <option>Tanga</option>
+                                            <option>Musoma</option>
+                                        </select>
+                                    </div>
+                                    <label for="date">Date:</label>
+                                    <input type="date" id="date" class="form-control" style="width: 100%;" value="2024-12-06">
+                                    <div style="text-align: left;">
+                                        <button type="submit" class="searchBusesBtn100 my-2"><i class="fa fa-refresh"></i><span style="margin-left: 2em;">Update Search</span></button>
+                                    </div>
+                              
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="booking-item-dates-change mb30" >
+                                <table style="table-layout: fixed;">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2"><h5 class="text-dark"> <strong> Journey Details </strong></h5></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                    <tr>
+                                        <td style=" word-wrap:break-word;">Passenger(s)</td>
+                                        <td style=" word-wrap:break-word;"><label id="lbl_passengers" class="badge text-success">30</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" word-wrap:break-word;">Seat(s)</td>
+                                        <td style=" word-wrap:break-word;">
+                                            <label id="lbl_selected_seats" class="badge badge-info text-dark" style=" word-wrap:break-word; width:100%">50</label>
+                                        
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style=" word-wrap:break-word;">Total Fare</td>
+                                        <td style=" word-wrap:break-word;"> <label id="lbl_fare" class="badge badge-primary text-dark">0.00 TSH</label>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-9 my-5">
+                   <div class="panel" style="height :auto;">
+                                <div id="frwd_rtn_heading" class="panel-heading" style="background-color:#000; color:#fff; padding:10px;">Select Seat for your journey from <strong style="color: rgb(167, 167, 167);">MTWARA</strong> to <strong style="color: rgb(167, 167, 167);">MWANZA</strong> </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-6"  style="margin-top:40px;">
+                                      <div class="row">
+                                         <div class="col-md-12">
+                                            <form class="booking-item-dates-change mb30" method="post" action="./booking.html" >
+                                             
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-group-icon-left">
+                                                            <label>Select Boarding Station</label>
+                                                            <select class="form-control" required name="boarding_stations" id="boarding_stations" >
+                                                                
+                                                                <option value="Kahama">Kahama</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group form-group-icon-left">
+                                                            <label>Select Dropping Station</label>
+                                                            <select class="form-control" required name="stopping_station" id="stopping_station" >
+                                                                
+                                                                <option value="Kahama">Kahama</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                        <div  id="booking_form_contents">
+                                                            <input type="hidden" id="sub_route_id" name="sub_route_id" value="1">
+                                                            <input type="hidden" id="trip_id" name="trip_id" value="11">
+                                                            <input type="hidden" id="bus_id" name="bus_id" value="11">
+                                                            <input type="hidden" id="from_id" name="from_id" value="11">
+                                                            <input type="hidden" id="to_id" name="to_id" value="11">
+                                                            <input type="hidden" id="trip_date" name="trip_date" value="11">
+                                                            <input type="hidden" id="fare" name="fare" value="11">
+                                                            <input type="hidden" id="selected_seats" name="selected_seats">
+                                                        </div>
+                                                        <button class="btn searchBusesBtn100 btn-block my-3"  type="submit" style="font-size: 16px;background-color: #000;">Continue <i class="fa fa-long-arrow-right arrow1 fa-1x"></i></button>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </form>
+                                         </div>
+                                       </div>
+                                       <div class="row">
+                                          <div class="col-md-12">
+                                              <table class="table">
+                                                  <thead>
+                                                  <tr>
+                                                      <th colspan="4"><h5 class="text-dark"> <strong> Seat Key descriptions </strong></h5></th>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-dark">Available Seat</th>
+                                                    <th class="text-dark">Booked Seat</th>
+                                                    <th class="text-dark">Selected Seat</th>
+                                                    <th class="text-dark">Inactive Seat</th>
+                                                  </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                  <tr>
+                                                      <td><div class="available_16"> </div></td>
+                                                      <td><div class="booked_16"> </div></td>
+                                                      <td><div class="processing_16"> </div></td>
+                                                      <td><div class="inactive_16"> </div></td>
+                                                  </tr> 
+                                                  </tbody>
+                                              </table>
+                                          </div>  
+                                      </div>
+                                     </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+            <div class="gap"></div>
+        </div>
+  
+           
+        
+        <!-- Clients-->
+        <footer class="footer bg-dark text-white">
+            <div class="container py-5" style="margin-top:5em!important">
+                <div class="row">
+                    <!-- Left Section: Description and Social Media -->
+                    <div class="col-12 col-md-4 mb-4">
+                        <div class="footer-description">
+                            <p style="text-align: left; font-size:20px">We are a
+                                leading platform for bus ticketing, providing a
+                                seamless and convenient experience for travelers
+                                to book their bus tickets online.</p>
+                            <div class="social-media-buttons"
+                                style="text-align: left;">
+                                <a href="#" class="btn socialmediabutton m-1"><i
+                                        class="fa fa-facebook-f"
+                                        style="font-size:25px;width:2em;background-color: #1E88E1!important;"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="btn socialmediabutton m-1"><i
+                                        class="fa fa-twitter"
+                                        style="font-size:25px;width:2em;background-color: #1E88E1!important;"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="btn socialmediabutton m-1"><i
+                                        class="fa fa-instagram"
+                                        style="font-size:25px;width:2em;background-color: #1E88E1!important;"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="btn socialmediabutton m-1"><i
+                                        class="fa fa-youtube"
+                                        style="font-size:25px;width:2em;background-color: #1E88E1!important;"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Section: Contact Info and Important Links -->
+                    <div class="col-12 col-md-4 mb-4">
+                        <div class="footer-contact">
+                            <h3 style="text-align: left;">Contact Info</h3>
+                            <ul class="list-unstyled" style="text-align: left;">
+                                <li><a href="#" class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-phone"
+                                            style="font-size:24px;color:#1E88E1"></i>+123
+                                        456 7890</a></li>
+                                <li><a href="#" class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-envelope"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        support@busticket.com</a></li>
+                                <li><a href="#" class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-location-arrow"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        123 Bus Station, City Name</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 mb-4">
+                        <div class="footer-links">
+                            <h5 style="text-align:left">Important Links</h5>
+                            <ul class="list-unstyled" style="text-align: left;">
+                                <li><a href="./about-us.html" class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-info-circle"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        About Us</a></li>
+                                <li><a href="./privacy-policy.html"
+                                        class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-shield"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        Privacy Policy</a></li>
+                                <li><a href="./terms-of-service.html"
+                                        class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-file"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        Terms of Service</a></li>
+                                <li><a href="#" class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-ban"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        Cancellation Policy</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JS-->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script
+            src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/select2.min.js"></script>
+
+        <script>
+            document.getElementById('date').value = new Date().toISOString().slice(0, 10);
+        </script>
+
+<script>
+    $(document).ready(function() {
+        let passenger_count=0;
+        let selected_seat="";
+        let fare =$("#fare").val();
+        let schedule_id=$("#trip_id").val();
+        let sub_route_id =$("#sub_route_id").val();
+        var wrapper = $("#booking_form_contents"); //Fields wrapper
+
+        $(".select_seat").click(function(){
+
+            let id1 = $(this).attr('id');
+            let lebel = $(this).attr('lebel');
+           
+            if($("#"+id1).attr("class") !== "seat-inprocess-img" ) {
+
+                $.ajax({
+                    url:"{{route('is_seat_booked')}}",
+                    type: 'post',
+                    data: {_method: 'post', _token :"{{csrf_token()}}",sub_route_id: sub_route_id,seat_id:id1,schedule_id:schedule_id},
+                    success:function(msg){
+                        console.log(msg.success);
+                        if(msg.success){
+                            if($("#lbl_passengers").html() !=""){
+                                passenger_count=parseInt($("#lbl_passengers").html());
+                                
+                            }
+                            let passenger = passenger_count + 1;
+                            selected_seat = lebel;
+                            if ($("#selected_seats").val() != "") {
+                                selected_seat = $("#selected_seats").val() + ',' + selected_seat;
+                            }
+                            
+                            $("#"+id1).attr("class", "seat-inprocess-img");
+                            $("#lbl_passengers").html(passenger);
+                            $("#selected_seats").val(selected_seat);
+                            $("#lbl_selected_seats").html(selected_seat);
+                            $("#lbl_fare").html(fare * passenger);
+
+                            let cust_field = '';
+                            cust_field += '<input type="hidden" name="selected_seat[]" value="' + id1 + '" id="seat_' + id1 + '">';
+
+                            $(wrapper).append(cust_field); //add input box
+                        }
+                    }
+                });
+
+
+            }
+            
+            else{
+
+                $("#"+id1).attr("class", "seat-dev-img");
+                var passenger_count_c=parseInt($("#lbl_passengers").html());
+                var passenger_c = passenger_count_c - 1;
+                selected_seat = lebel;
+                
+                 var selection = ',' + selected_seat;
+                 var selection2 = selected_seat;
+                 var selection3 = selected_seat+',';
+                 
+                 var current = $("#selected_seats").val();
+                 var newselection =current.replace(selection3,"");
+                     newselection =newselection.replace(selection,"");
+                     newselection=newselection.replace(selection2,"");
+                 
+                 $("#lbl_passengers").html(passenger_c);
+                 $("#selected_seats").val(newselection);
+                 $("#lbl_selected_seats").html(newselection);
+                 $("#lbl_fare").html(fare * (passenger_c));
+
+                 $("#seat_" + id1).remove();
+                
+            }
+
+
+
+        });
+        $(".display_label_notyet").click(function(){
+            let id1 = $(this).parent().attr('id');
+            let lebel = $(this).parent().attr('lebel');
+            
+           
+            if($("#"+id1).attr("class") !== "seat-inprocess-img" ) {
+
+                $.ajax({
+                    url:"{{route('is_seat_booked')}}",
+                    type: 'post',
+                    data: {_method: 'post', _token :"{{csrf_token()}}",sub_route_id: sub_route_id,seat_id:id1,schedule_id:schedule_id},
+                    success:function(msg){
+                        console.log(msg.success);
+                        if(msg.success){
+                            let passenger = passenger_count;
+                            selected_seat = lebel;
+                            if ($("#selected_seats").val() != "") {
+                                selected_seat = $("#selected_seats").val() + ',' + selected_seat;
+                            }
+                            $("#"+id1).attr("class", "seat-inprocess-img");
+                            $("#lbl_passengers").html(passenger_count++);
+                            $("#selected_seats").val(selected_seat);
+                            $("#lbl_selected_seats").html(selected_seat);
+                            $("#lbl_fare").html(fare * passenger);
+
+                            let cust_field = '';
+                            cust_field += '<input type="text" name="selected_seat_id[]" value="' + id1 + '">';
+
+                            $(wrapper).append(cust_field); //add input box
+                        }
+                    }
+                });
+
+
+            }
+            /* Not yet implemented unselect seat option
+            else{
+                $(this).attr("class", "seat-dev-img");
+            }*/
+
+
+
+        });
+    } );
+</script>
+<script>
+    $(document).ready(function(){
+        $('#trip_return').change(function(){
+            if(this.checked) {
+                $('#show_return').slideDown('slow');
+                $('#return_date').attr('required', 'required');
+            }
+            else {
+                $('#show_return').slideUp('slow');
+                $('#return_date').removeAttr('required', 'required');
+            }
+        });
+        $('#trip_one_way').change(function(){
+            if(this.checked) {
+                $('#show_return').slideUp('slow');
+                $('#return_date').removeAttr('required', 'required');
+            }
+            else {
+                $('#show_return').slideDown('slow');
+                $('#return_date').attr('required', 'required');
+            }
+        });
+    });
+   
+</script>
+
+    </body>
+</html>
+
