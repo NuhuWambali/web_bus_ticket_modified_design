@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content />
+        <meta name="author" content />
+        <title>Web E-Ticket - Select Bus</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png" />
+        <!-- Font Awesome icons (free version)-->
+
+        <!-- Google fonts-->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/modified.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="./css/mystyles.css">
+
+
+    </head>
+    <style>
+        .selectBus{
+             color:#000!important;
+        }
+        @media (max-width: 767px) {
+    .btn {
+        width: 100% !important; /* Make button width 100% to fit the container */
+        padding: 12px; /* Adjust padding for a better appearance */
+        font-size: 14px; /* Reduce font size to fit smaller screens */
+    }
+
+    /* Adjust the table layout */
+    .table {
+        width: 80% !important;
+        margin-left: 10px; /* Add space on left */
+        margin-right: 10px; /* Add space on right */
+    }
+
+    .table td, .table th {
+        padding: 8px 1px; /* Adjust padding for smaller cells */
+    }
+}
+
+
+.booking-item-flight-details .booking-item-departure .fa-bus,
+.booking-item-flight-details .booking-item-arrival .fa-bus {
+  float: left;
+  display: block;
+  font-size: 30px;
+  margin-right: 5px;
+  position: relative;
+  top: 4px;
+}
+.booking-item-payment-total-flight > li .booking-item-flight-details .booking-item-departure .fa-bus,
+.booking-item-payment-total-flight > li .booking-item-flight-details .booking-item-arrival .fa-bus {
+  font-size: 20px;
+}
+.booking-item-payment-flight .booking-item-flight-details .booking-item-departure .fa-bus,
+.booking-item-payment-flight .booking-item-flight-details .booking-item-arrival .fa-bus {
+  font-size: 20px;
+}
+     /* annimated arrow */
+.arrow1 {
+  animation: slide1 1s ease-in-out infinite;
+  margin-left: 9px;
+}
+@keyframes slide1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}
+    </style>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img
+                        src="./assets/img/logos/logo.png" alt="logo"
+                        width="200px" height="100em"
+                        style="height:4em;position:relative;top:-1em;" /></a>
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link"
+                                href="./index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="./about-us.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="./download_ticket.html">Download
+                                Ticket</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="./customer_feedback.html">Customer
+                                Feedback</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="./contact-us.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="./login.html">Login</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <!-- Display current language icon and name using Font Awesome -->
+                                <span id="current-language">
+                                    <i class="fa fa-language me-2"></i> English
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="navbarDropdown">
+                                <!-- Language Options with Font Awesome Icons -->
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="changeLanguage('english')">
+                                        <i class="fa fa-flag me-2"></i> English
+                                    </a></li>
+                                <li><a class="dropdown-item" href="#"
+                                        onclick="changeLanguage('swahili')">
+                                        <i class="fa fa-flag me-2"></i> Swahili
+                                    </a></li>
+                                <!-- Add more languages here -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead_download_ticket" style="position: relative;">
+            <div class="container">
+                <div class="masthead-heading_download_ticket ">Booking a Bus</div>
+            </div>
+        </header>
+
+        <!-- Portfolio Grid-->
+        <div class="container">
+            <div class="container">
+                <div class="gap"></div>
+                <div class="row row-wrap">
+                    <div class="col-md-8">
+                    <form method="post" enctype="multipart/form-data" action="" role="form">
+                     
+                        <h3 class="mt-5" style="color:#000">Add Passenger's Details</h3>
+                        <ul class="list booking-item-passengers">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label><strong>Seat No</strong></label>
+                                        <div class="radio-inline radio-small">
+                                            <label> <input  type="hidden" name="seats[]" readonly value="30"/>
+                                                      <strong> label</strong></label>
+                                        </div>
+    
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Jina Kamili</label>
+                                            <input class="form-control" type="text" name="name[]" required  autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Umri</label>
+                                            <select class="form-control" name='age[]' required>
+                                               <option value="Adult">Mkubwa</option>
+                                                <option value="Child">Mtoto</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Jinsia</label>
+                                            <select class="form-control" name='gender[]' required>
+                                               <option value="Male">Mwanaume</option>
+                                                <option value="Female">Mwanamke</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-2">
+                                       <div class="form-group">
+                                            <label>Namba ya Kitambulisho</label>
+                                            <input class="form-control" type="text" name="identification[]" autocomplete="off"/>
+                                        </div>
+    
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label>Namba ya simu</label>
+                                            <input class="form-control" type="text" name="phone[]" />
+                                        </div>
+                                    </div>
+    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-2">
+                                       <div class="form-group">
+                                            <label>Parcel</label>
+                                            <input class="form-control" type="text" name="parcel[]" autocomplete="off"/>
+                                        </div>
+    
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Amount</label>
+                                            <input class="form-control" type="text" name="amount[]" />
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Discount</label>
+                                            <input class="form-control" type="text" name="discount[]" />
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </li>
+                      
+                        </ul>
+                        <div class="gap gap-small"></div>
+                        <div class="row">
+                            <div class="col-md-4"><p class="text-bold text-red" style="color:red">Important: Fill in Booking Contact phone number and you will be redirected to complete your payment.</p>
+                            </div>
+                            <div class="col-md-8">
+                             <div class="row">
+                               <div class="col-md-12">
+                                  <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                                    <label>Contact Phone Number</label>
+                                                    <input class="form-control" placeholder="Namba ya simu" type="text" name="contact_phone" required /><span class="cc-card-icon"></span>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <div class="form-group form-group-cc-name">
+                                                    <label>Email</label>
+                                                    <input class="form-control" type="email" placeholder="Barua Pepe" name="contact_email"/>
+                                           </div>
+                                        </div>
+    
+                                    </div>
+                                    <div class="checkbox checkbox-small">
+                                      <label><input class="i-check" type="checkbox" name="terms" required/><span style="margin-top: 30px;font-size:15px;">I agree to terms and conditions</span></label>
+                                    </div>
+                                    <input type="hidden" id="sub_route_id" name="sub_route_id" value="{{$request->sub_route_id}}">
+                                    <input type="hidden" id="trip_id" name="trip_id" value="{{$request->trip_id}}">
+                                    <input type="hidden" id="from_id" name="from_id" value="{{$request->from_id}}">
+                                    <input type="hidden" id="to_id" name="to_id" value="{{$request->to_id}}">
+                                    <input type="hidden" value="{{ $bus->buscompany->id }}" name="company_id"/>
+                                    <input type="hidden" value="{{ $bus->id }}" name="bus_id"/>
+                                    <input type="hidden" value="{{ $fare }}" name="fare"/>
+                                    <input type="hidden" id="trip_date" name="trip_date" value="{{$request->trip_date}}">
+                                    <input type="hidden" value="{{ $schedule->departure }}" name="departure"/>
+                                    <input type="hidden" value="{{ $schedule->arrival }}" name="arrival"/>
+                                    <input type="hidden" value="{{ $bus->class }}" name="class"/>
+                                    <input type="hidden" value="{{ $schedule->id }}" name="schedule"/>
+                                    <input type="hidden" value="{{ $stopping_station }}" name="stopping_station"/>
+                                    <input type="hidden" value="{{ $boarding_stations }}" name="boarding_station"/>
+    
+                                   <button class="btn searchBusesBtn100 btn-block" type="submit">Issue Receipt <i class="fa fa-long-arrow-right arrow1 fa-1x"></i></button>
+                                </div>
+                             </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+    
+                    <div class="col-md-4 my-5">
+                        <div class="booking-item-payment">
+                            <header class="clearfix">
+                                <h5 class="mb0"style="color:#000">MARA - MWANZA</h5>
+                            </header>
+                            <ul class="booking-item-payment-details">
+                                <li>
+                                    <h5 style="color:#000!important">Travel Details</h5>
+    
+                                    <div class="booking-item-payment-flight">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <div class="booking-item-flight-details" style="color:#000!important">
+                                                    <div class="booking-item-departure" ><i class="fa fa-bus" style="color: rgb(0, 128, 0);"></i>
+                                                        <h5  style="color:#000!important">2:00pm
+                                                            </h5>
+                                                        <p class="booking-item-date">Fri, Dec 24</p>
+                                                        <p class="booking-item-destination">Departure</p>
+                                                    </div>
+                                                    <div class="booking-item-arrival"><i class="fa fa-bus" style="color: rgb(255, 4, 4);"></i>
+                                                        <h5 style="color:#000!important">8:00pm
+                                                            Fri, Dec 24</h5>
+                                                        <p class="booking-item-date">Fri, Dec 24</p>
+                                                        <p class="booking-item-destination">Arrival</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="booking-item-flight-duration">
+                                                    <p>Duration</p>
+                                                    <h5 style="color:#000!important">5h</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p></p>The selected buss will travel via MAGU
+                                         <div class="booking-item-flight-details">
+                                            <p><span class="">One way Trip Details</span></p>
+                                            <p>Travel Date: 2024-12-06</p>
+                                            <p>Bus Details</p>
+                                            <p><strong>T228EGP| Number 1|Semi Luxury </strong></p>
+                                        </div>
+                                        <div class="booking-item-flight-details">
+                                            <p class="">Selected Seat(s)
+                                            <label class="badge badge-success"><strong style="color:#000">39,41</strong></label></p>
+                                            <p>Fare: <strong>0.00 TSH</strong></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h5 style="color:#000">Tickets(2 Passengers)</h5>
+                                    <ul class="booking-item-payment-price">
+                                        <li>
+                                            <p class="booking-item-payment-price-title">Tickets (2 Passengers)</p>
+                                            <p class="booking-item-payment-price-amount">0.00 TSh<small>/per passnger</small>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="booking-item-payment-price-title">Taxes</p>
+                                            <p class="booking-item-payment-price-amount">0.00 Tsh<small>/per passnger</small>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p class="booking-item-payment-total">Total Fare: <span>0.00 Tsh</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gap"></div>
+            </div>
+        </div>
+        
+        <!-- Clients-->
+        <footer class="footer bg-dark text-white">
+            <div class="container py-5" style="margin-top:5em!important">
+                <div class="row">
+                    <!-- Left Section: Description and Social Media -->
+                    <div class="col-12 col-md-4 mb-4">
+                        <div class="footer-description">
+                            <p style="text-align: left; font-size:20px">We are a
+                                leading platform for bus ticketing, providing a
+                                seamless and convenient experience for travelers
+                                to book their bus tickets online.</p>
+                            <div class="social-media-buttons"
+                                style="text-align: left;">
+                                <a href="#" class="btn socialmediabutton m-1"><i
+                                        class="fa fa-facebook-f"
+                                        style="font-size:25px;width:2em;background-color: #1E88E1!important;"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="btn socialmediabutton m-1"><i
+                                        class="fa fa-twitter"
+                                        style="font-size:25px;width:2em;background-color: #1E88E1!important;"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="btn socialmediabutton m-1"><i
+                                        class="fa fa-instagram"
+                                        style="font-size:25px;width:2em;background-color: #1E88E1!important;"
+                                        aria-hidden="true"></i></a>
+                                <a href="#" class="btn socialmediabutton m-1"><i
+                                        class="fa fa-youtube"
+                                        style="font-size:25px;width:2em;background-color: #1E88E1!important;"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Section: Contact Info and Important Links -->
+                    <div class="col-12 col-md-4 mb-4">
+                        <div class="footer-contact">
+                            <h3 style="text-align: left;">Contact Info</h3>
+                            <ul class="list-unstyled" style="text-align: left;">
+                                <li><a href="#" class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-phone"
+                                            style="font-size:24px;color:#1E88E1"></i>+123
+                                        456 7890</a></li>
+                                <li><a href="#" class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-envelope"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        support@busticket.com</a></li>
+                                <li><a href="#" class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-location-arrow"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        123 Bus Station, City Name</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 mb-4">
+                        <div class="footer-links">
+                            <h5 style="text-align:left">Important Links</h5>
+                            <ul class="list-unstyled" style="text-align: left;">
+                                <li><a href="./about-us.html" class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-info-circle"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        About Us</a></li>
+                                <li><a href="./privacy-policy.html"
+                                        class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-shield"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        Privacy Policy</a></li>
+                                <li><a href="./terms-of-service.html"
+                                        class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-file"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        Terms of Service</a></li>
+                                <li><a href="#" class="text-white"
+                                        style="text-decoration: none!important;"><i
+                                            class="fa fa-ban"
+                                            style="font-size:24px;color:#1E88E1"></i>
+                                        Cancellation Policy</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JS-->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script
+            src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/select2.min.js"></script>
+
+        <script>
+            document.getElementById('date').value = new Date().toISOString().slice(0, 10);
+        </script>
+
+    </body>
+</html>
